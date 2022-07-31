@@ -14,14 +14,15 @@ const confettiCannon = ()=>{
         let confetti = document.createElement('div');
         let ranDir = Math.floor(Math.random() * 2) ? "-" : "";
     
-        confetti.style.height = '.5rem';
-        confetti.style.width = '.3rem';
+        confetti.style.height = `${Math.random().toFixed(2) * .6}rem`;
+        confetti.style.width = `${Math.random().toFixed(2) *.4}rem`
         confetti.style.position = 'absolute';
         confetti.style.animationFillMode = 'forwards';
-        confetti.style.transform =`rotate(${Math.random() * 1000}deg)`;
+        confetti.style.transform = `skew(${Math.random() * 16}deg, ${Math.random() * 36}deg)`;
+        confetti.style.boxShadow = '5px 1px 10px;'
         confetti.style.transform = 'all ease-in-out';
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.animate([{transform:`translate(${ranDir}${Math.random() * 200}vw, -${Math.random() * 300}vh)`, opacity:"0%"}], {duration:time, iterations:1});
+        confetti.animate([{transform:`translate(${ranDir}${Math.random() * 200}vw, -${Math.random() * 300}vh) scale(${Math.random() * 4}) rotate(${Math.floor(Math.random() * 500)}deg)`, opacity:"0%"}], {duration:time, iterations:1, delay:Math.random() * 600});
         cannon.appendChild(confetti);
     
         //Once the animation is done, remove the divs from the DOM
