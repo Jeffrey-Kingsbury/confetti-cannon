@@ -1,5 +1,5 @@
 const confettiCannon = ()=>{
-
+    const audio = new Audio('../sfx.mp3');
     const cannon = document.createElement('div');
     const colors = ['red', 'blue', 'green', 'pink', 'purple', 'white', 'orange'];
     const size = 1000; //You can change this to make the explosion bigger. 5000 starts to lag
@@ -24,7 +24,11 @@ const confettiCannon = ()=>{
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         confetti.animate([{transform:`translate(${ranDir}${Math.random() * 200}vw, -${Math.random() * 300}vh) scale(${Math.random() * 4}) rotate(${Math.floor(Math.random() * 500)}deg)`, opacity:"0%"}], {duration:time, iterations:1, delay:Math.random() * 600});
         cannon.appendChild(confetti);
-    
+
+        // Uncomment below if you'd like SFX with the confetti.
+        //audio.play();
+
+
         //Once the animation is done, remove the divs from the DOM
         setTimeout(()=>{
             cannon.removeChild(confetti);
