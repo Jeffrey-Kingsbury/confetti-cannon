@@ -40,4 +40,3 @@ const confettiCannon = ()=>{
     }, time + 1000);
     }
 
-confettiCannon()
